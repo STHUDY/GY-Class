@@ -1,0 +1,49 @@
+<div class='cover_full_cut_nav' style='margin-top:4rem'>
+    <br>
+    <div class='text-center'>
+        <img class='round fadein-simple' id='user_img' width="150" height='150' alt="">
+        
+        <div class='container text-center insert-bottom'>
+    <div style='width:30vw;min-width:280px' class='m-auto'>
+        <div class='form-signin row'>
+            <form action="./Code/PHP/gy-jion-class.php" method="post" class="needs-validation" target="form-submit" novalidate>
+                <h2 class='text-info insert-up'>欢迎您(<span class='text-primary' id='main_UserID'></span>)访问光艺同学录</h2>
+                <div class='form-floating insert-up col-6 float-start'>
+                    <input type='text' maxlength="16" class='form-control insert-right opacity-75 col-2' name='class_code' id='class_code_number' placeholder="请输入班级邀请码" required>
+                    <label for='class_code' class='insert-right'>班级邀请码</label>
+                    <div class="invalid-feedback">请输入班级邀请码</div>
+                </div>
+                <input type='submit' style='height:calc(3.5rem + 2px)'  class='btn btn-primary btn-lg insert-bottom col-5 float-end' value='确认'>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<button onclick='Exit_user()' class='text-light opacity-50 btn-outline-info border-0 rounded-pill btn position-absolute top-0 end-0 insert-up'><h3><i class="bi bi-door-open"></i></h3></button>
+<script>
+(function () {
+    username = BASE64.decode(window.decodeURIComponent(getCookie('UserName')));
+        userimg = BASE64.decode(window.decodeURIComponent(getCookie('UserImg')));
+        $("#main_UserID").html(username)
+        $("#user_img").attr("src",userimg)
+        $("#user_img").attr("alt",username)
+        
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+</script>

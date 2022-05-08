@@ -1,0 +1,7 @@
+{
+    "home_background":".\/Part\/Default\/main\/Background\/one.html",
+    "home_main":".\/Part\/Default\/main\/main\/one.html",
+    "user_sign_in":".\/Part\/Default\/main\/Sign\/main\/one.html",
+    "user_register":".\/Part\/Default\/main\/Register\/main\/one.html",
+    "API":"./Apis/Default/api-use.json"
+}

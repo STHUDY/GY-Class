@@ -1,0 +1,74 @@
+.fadein{
+    animation:fadein-load 1.2s;
+}
+@keyframes fadein-load
+{
+	from {filter: blur(24px) brightness(50%); opacity:0.1;}
+	to {}
+}
+
+.fadeout{
+    animation:fadeout-load 1.2s;
+}
+@keyframes fadeout-load
+{
+	from {filter: blur(0px) brightness(100%); opacity:0.9;}
+	to {}
+}
+.fadein-simple{
+    animation:fadein-simple-load 1.2s;
+}
+@keyframes fadein-simple-load
+{
+	from {opacity:0.1;}
+	to {}
+}
+
+.fadeout-simple{
+    animation:fadeout-simple-load 1.2s;
+}
+@keyframes fadeout-simple-load
+{
+	from {opacity:0.9;}
+	to {}
+}
+.insert-left{
+    animation:insert-left-load 1.5s;
+}
+@keyframes insert-left-load
+{
+	from {transform:translateX(-25%);}
+	to {}
+}
+.insert-right{
+    animation:insert-right-load 1.5s;
+}
+@keyframes insert-right-load
+{
+	from {transform:translateX(25%);}
+	to {}
+}
+.insert-up{
+    animation:insert-up-load 1.5s;
+}
+@keyframes insert-up-load
+{
+	from {transform:translateY(-40%);}
+	to {}
+}
+.insert-bottom{
+    animation:insert-buttom-load 1.5s;
+}
+@keyframes insert-buttom-load
+{
+	from {transform:translateY(40%);}
+	to {}
+}
+.eject-center-bg{
+    animation:eject-center-bg-load 1.2s;
+}
+@keyframes eject-center-bg-load
+{
+	from {filter: brightness(50%); opacity:0.1;width:10vw;height:10vh}
+	to {}
+}

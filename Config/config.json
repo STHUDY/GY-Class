@@ -1,0 +1,5 @@
+{
+    "main":".\/Config\/Part\/main.json",
+    "register":".\/Config\/Part\/register.json",
+    "sign_in":".\/Config\/Part\/sign_in.json"
+}

@@ -1,0 +1,77 @@
+<div class='cover_full_cut_nav text-center' id="chat_all_show" style='margin-top:4.2rem;background-color:rgb(0 0 0 / 20%)'>
+    <br>
+    <!--聊天界面-->
+    <div class='h1 bg-white chat_head w-100 m-auto'>
+        <span class='text-primary h4 float-start' style="margin-top:1.275rem" id="chat_head_now_name"></span>
+        <button class="border-0 text-info h1 float-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" style="background-color:transparent;margin-top:5px"><i class="bi bi-people-fill"></i></button>
+    </div>
+    
+    <div class='bg-white chat_body w-100 m-auto'>
+        <div class='w-100' id='show_massage_box' style="height: 100%;float:left;overflow-y:auto">
+            <h1>消息加载中...</h1>
+        </div>
+    </div>
+    <form action="./Code/PHP/gy-send-message.php" method="post" target="form-submit" >
+        
+        <div class='bg-white chat_text w-100 m-auto'>
+            <textarea class='form-control' id='send_text_box' name="send_message" style="resize:none;height:100px;background-color:rgb(205 242 255)"></textarea>
+        </div>
+        
+        <div class='bg-white chat_feet w-100 m-auto'>
+            <button type='button' class='btn btn-primary float-start' style="margin-top:5px;margin-left:10px" onclick='$("#send_text_box").val("")'>清空</button>
+            <input type='submit' class='btn btn-primary float-end' style="margin-top:5px;margin-right:10px" value='发送'>
+        </div>
+    </form>
+    <!--聊天界面-->
+</div>
+
+<div>
+    <div class="offcanvas offcanvas-end h-100 opacity-75" style='margin-top:4.2rem' id="offcanvasRight">
+        <div class="offcanvas-header">
+            <h5>同学列表</h5>
+            <button type="button" id='chat_user_list_close' class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            
+        </div>
+        
+        <div id='chat_user_list' class="offcanvas-body">
+            <button id='all_people' onclick="chat_user_onclick('chat_user_list_close',function(){document.getElementById('chat_head_now_name').innerHTML = '[班级]所有人';setCookie('SendUser','all',1);loaded_all_message();document.getElementById('show_massage_box').innerHTML='<h1>消息加载中...</h1>'})" class="btn btn-outline-primary w-100 text-start">[班级]所有人</button>
+        </div>
+    </div>
+</div>
+<script>
+for (i = 0; i < Number(getCookie("AllClass")); i++) {
+    get_all_chat_user(function(result){
+        DOM = document.getElementById('chat_user_list');
+        if(result[2] == getCookie("UserID")){
+            return false;
+        }
+        DOM.innerHTML = DOM.innerHTML + '<button  onclick="chat_user_onclick(\'chat_user_list_close\',function(){document.getElementById(\'chat_head_now_name\').innerHTML = \''+result[1]+'\';setCookie(\'SendUser\',\''+result[2]+'\',1);loaded_all_message();document.getElementById(\'show_massage_box\').innerHTML=\'<h1>消息加载中...</h1>\'})" class="btn btn-outline-success w-100 text-start">'+result[1]+'</button>' ;
+    },i)
+}
+
+function loaded_all_message(){
+chat_get_message_number('loaded',function(result){
+    document.getElementById("show_massage_box").innerHTML = ""
+    var i = 0;
+    if(Number(result) > 30){
+        i = Number(result) - 30;
+    }
+    for(i;i< Number(result);i++){
+        chat_get_message(i,function(result){
+            load_massage(result)
+        },false)
+    }
+})
+}
+self.setInterval(function(){
+            chat_get_message_number("loading",function(results){
+                if(Number(results) > Number(getCookie("LoadMessage")) && Number(getCookie("LoadMessage")) != -1 && Number(results) != -1){
+                    setCookie('LoadMessage',String(Number(getCookie("LoadMessage"))+1),30)
+                    chat_get_message(results,function(result){
+                    load_massage(result)
+                },true)
+            }
+        })
+    },500)
+document.getElementById("all_people").click()
+</script>

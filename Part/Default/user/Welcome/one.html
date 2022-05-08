@@ -1,0 +1,20 @@
+<div class='cover_full_cut_nav' style='margin-top:4rem'>
+    <br>
+    <div class='text-center'>
+        <img class='round fadein-simple rounded-3' id='user_img' width="150" height='150' alt="">
+        <h2 class='text-info insert-up'>欢迎<span class='text-primary' id='main_UserID'></span>查看<span id='main_Class_Name'></span>的同学录</h2>
+        <h2 class='text-white fadein-simple'>回忆美好的学生时光</h2>
+        <button onclick='Jump("/class")' class='btn btn-info btn-lg text-light opacity-75'>进入同学录</button>
+    </div>
+</div>
+<script>
+    (function(){
+        username = BASE64.decode(window.decodeURIComponent(getCookie('UserName')));
+        userimg = BASE64.decode(window.decodeURIComponent(getCookie('UserImg')));
+        userclass = BASE64.decode(window.decodeURIComponent(getCookie('Class')));
+        $("#main_Class_Name").html(userclass)
+        $("#main_UserID").html(username)
+        $("#user_img").attr("src",userimg)
+        $("#user_img").attr("alt",username)
+    })()
+</script>

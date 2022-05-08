@@ -1,0 +1,9 @@
+{
+    "user_nav":".\/Part\/Default\/user\/Navbar\/one.html",
+    "background":".\/Part\/Default\/user\/Background\/one.html",
+    "welcome":".\/Part\/Default\/user\/Welcome\/one.html",
+    "allclass":".\/Part\/Default\/user\/Class\/one.html",
+    "userset":".\/Part\/Default\/user\/Userset\/one.html",
+    "notice":".\/Part\/Default\/user\/Notice\/one.html",
+    "chat":".\/Part\/Default\/user\/Chat\/one.html"
+}

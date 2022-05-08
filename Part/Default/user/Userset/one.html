@@ -1,0 +1,89 @@
+<div class='text-center cover_full_cut_nav' style='margin-top:4.2rem'>
+    <br>
+    <div class='border border-5 rounded-3 bg-light border-light' style='display: inline-block;width:100%;max-width:600px;opacity:0.60'>
+        <!--用户基础设置-->
+        <div style="margin-top:10px">
+            <h4 class="text-info" style="text-align:left;margin-left:10%"><span>昵称：</span><span id='user_name'></span><span id='change_user_name'></span> <button id="change_user_name_button" onclick='Create_box("change_user_name","./Code/PHP/gy-con-change-name.php","user_name","user_name","change_user_name_button")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button></h4>
+            <h4 class="text-info" style="text-align:left;margin-left:10%"><span>账号：</span><span id='user_id'></span></h4>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>班级：</span><span id='class_name_show'></span></h4>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>头像(QQ号)：</span><span id='show_qqimg'></span><span id='show_qq_get_img_change'></span>
+                <button id="show_qq_get_img_change_buttom" onclick='Create_box("show_qq_get_img_change","./Code/PHP/gy-change-qq-img.php","QQImg","show_qqimg","show_qq_get_img_change_buttom")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button>
+            </h4>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>你的身份：</span><span id='class_power_user'></span></h4>
+        </div>
+        <!--用户基础设置-->
+        <br>
+        <!--个人信息设置-->
+        <div>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>QQ：</span><span id='show_qq'></span><span id='show_qq_change'></span>
+                <button id="show_qq_change_buttom" onclick='Create_box("show_qq_change","./Code/PHP/gy-change-qq.php","QQ","show_qq","show_qq_change_buttom")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button>
+            </h4>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>微信：</span><span id='show_wechat'></span><span id='show_wechat_change'></span>
+                <button id="show_wechat_change_buttom" onclick='Create_box("show_wechat_change","./Code/PHP/gy-change-wechat.php","WeChat","show_wechat","show_wechat_change_buttom")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button>
+            </h4>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>电话：</span><span id='show_phone'></span><span id='show_phone_change'></span>
+                <button id="show_phone_change_buttom" onclick='Create_box("show_phone_change","./Code/PHP/gy-change-phone.php","Phone","show_phone","show_phone_change_buttom")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button>
+            </h4>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>联系邮箱：</span><span id='show_box'></span><span id='show_box_change'></span>
+                <button id="show_box_change_buttom" onclick='Create_box("show_box_change","./Code/PHP/gy-change-box.php","Box","show_box","show_box_change_buttom")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button>
+            </h4>
+        </div>
+        <!--个人信息设置-->
+        <br>
+        <!--个人描述-->
+        <div>
+            <h4 class='text-info' style="text-align:left;margin-left:10%">
+                <span>个人描述：</span><button id="self_introduce_change_button" style='font-size:16px;background:none' class="rounded-circle border-0" onclick='Create_textarea("self_introduce_change","./Code/PHP/gy-change-introcude.php","self_introduce","self_introduce","self_introduce_change_button")'><i class="bi bi-pencil"></i></button>
+                <br>
+                <span id='self_introduce' style="margin-left:50px"></span>
+                <span id='self_introduce_change' style="margin-left:50px"></span>
+            </h4>
+        </div>
+        <!--个人描述-->
+        <br>
+        <!--班长权限-->
+        <div id='notice' style="display:none">
+            <h4 class='text-info' style="text-align:left;margin-left:10%">
+                <span>当前公告：</span><button id="class_notice_change_button" style='font-size:16px;background:none' class="rounded-circle border-0" onclick='Create_textarea("class_notice_change","./Code/PHP/gy-change-class-notice.php","class_notice","class_notice","class_notice_change_button")'><i class="bi bi-pencil"></i></button>
+                <br>
+                <div id='class_notice' style="margin-left:40px"></div>
+                <span id='class_notice_change' style="margin-left:40px"></span>
+            </h4>
+        </div>
+        <!--班长权限-->
+    </div>
+</div>
+<script>
+    (function(){
+        username = BASE64.decode(window.decodeURIComponent(getCookie('UserName')))
+        class_name = BASE64.decode(window.decodeURIComponent(getCookie('Class')))
+        userid = window.decodeURIComponent(getCookie('UserID'))
+        selfintroduce = BASE64.decode(window.decodeURIComponent(getCookie('SelfItroduce')))
+        $("#user_name").html(username)
+        $('#class_name_show').html(class_name)
+        $("#user_id").html(userid)
+        $("#self_introduce").html(selfintroduce)
+        get_user_info_axaj("show_qqimg",getCookie("QQImg"))
+        console.log(getCookie("QQImg"))
+        get_user_info_axaj("show_qq",getCookie("QQ"))
+        get_user_info_axaj("show_wechat",getCookie("WeChat"))
+        get_user_info_axaj("show_phone",getCookie("Phone"))
+        get_user_info_axaj("show_box",getCookie("Box"))
+        if(Number(getCookie("UserPower")) == 0){
+            document.getElementById('notice').innerHTML = "";
+            $("#class_power_user").html("学生")
+        }else if(Number(getCookie("UserPower")) == 1){
+            document.getElementById('notice').innerHTML = "";
+            $("#class_power_user").html("课代表")
+        }else if(Number(getCookie("UserPower")) == 2){
+            document.getElementById('notice').style.display = "inline"
+            get_class_notice("class_notice")
+            $("#class_power_user").html("班长")
+            var class_notice = document.getElementById('notice');
+        }else if(Number(getCookie("UserPower")) == 3){
+            document.getElementById('notice').onclick = "";
+            $("#class_power_user").html("管理员")
+            get_class_notice("class_notice")
+        }
+    })()
+</script>

@@ -1,0 +1,87 @@
+<nav class='fixed-top opacity-75 navbar navbar-dark navbar-expand-md bg-gy-top-nav-color'>
+    <div class='container-fluid'>
+        <span class='navbar-brand'>光忆</span>
+        <button class='navbar-toggler' data-bs-toggle='offcanvas' data-bs-target='#button_collapse1' aria-controls='#button_collapse1'>
+            <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse'>
+            
+            <ul class='navbar-nav me-auto mb-2 mb-md-0'>
+                <!--占位符-->
+                <li class='nav-item'>
+                    <div class='nav-link'><button onclick='Jump("/main")' class='btn btn-outline-light border-0'><span class='h6'><i class="bi bi-house"></i>  首页</span></button></div>
+                </li>
+                <li class='nav-item'>
+                    <div class='nav-link'><button onclick='Jump("/class")' class='btn btn-outline-light border-0'><span class='h6'><i class="bi bi-person-lines-fill"></i>  班级</span></button></div>
+                </li>
+                <li class='nav-item'>
+                    <div class='nav-link'><button onclick='Jump("/notice")' class='btn btn-outline-light border-0'><span class='h6'><i class="bi bi-easel2"></i>  公告</span></button></div>
+                </li>
+                <li class='nav-item'>
+                    <div class='nav-link'><button onclick='Jump("/chat")' class='btn btn-outline-light border-0'><span class='h6'><i class="bi bi-chat-text"></i>  聊天</span></button></div>
+                </li>
+                <!--占位符-->
+                
+            </ul>
+            
+            
+            <ul class='navbar-nav'>
+                <li class='nav-item'>
+                    <div class='nav-link active dropdown'>
+                        
+                        <button class='btn btn-outline-light border-0 dropdown-toggle' type="button" id="user_choose_menu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class='h5' id='nav_top_UserID'><i class="bi bi-person-circle" ></i>  </span>
+                        </button>
+                        
+                        <ul class="dropdown-menu" aria-labelledby="user_choose_menu">
+                            <li><button class="dropdown-item" onclick="Jump('/set')" >学生设置</button></li>
+                            <li><button class="dropdown-item" onclick="Exit_user()" >退出登录</button></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+        
+        <!--低宽度-->
+        <div class="offcanvas offcanvas-start" id='button_collapse1'>
+            <div class='offcanvas-header bg-gy-left-nav-color'>
+                <h5 class='offcanvas-title text-info' id='nav_left_UserID'></h5>
+                <button class="btn-close text-reset text-info" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            
+            <div class='offcanvas-body'>
+                
+                <ul class="list-group">
+                    <li class="list-group-item border-0 text-start btn btn-outline-primary">
+                        <span onclick='Jump("/main")' class='h5'><i class="bi bi-house"></i>  首页</span>
+                    </li>
+                    <li class="list-group-item border-0 text-start btn btn-outline-primary">
+                        <span onclick='Jump("/class")' class='h5'><i class="bi bi-person-lines-fill"></i>  班级</span>
+                    </li>
+                    <li class="list-group-item border-0 text-start btn btn-outline-primary">
+                        <span onclick='Jump("/notice")' class='h5'><i class="bi bi-easel2"></i>  公告</span>
+                    </li>
+                    <li class="list-group-item border-0 text-start btn btn-outline-primary">
+                        <span onclick='Jump("/chat")' class='h5'><i class="bi bi-chat-text"></i>  聊天</span>
+                    </li>
+                </ul>
+                
+                <hr>
+                
+                <button class='btn' onclick="Jump('/set')" ><span class='h4'><i class="bi bi-gear"></i> 用户设置</span></button>
+                <br>
+                <button class='btn' onclick="Exit_user()" ><span class='h4'><i class="bi bi-person-circle" ></i> 退出登录</span></button>
+            </div>
+            
+        </div>
+    </div>
+</nav>
+<script>
+    (function(){
+        username = BASE64.decode(window.decodeURIComponent(getCookie('UserName')));
+        userimg = BASE64.decode(window.decodeURIComponent(getCookie('UserImg')));
+        $("#nav_left_UserID").html("<img style='height:1.75rem' src='"+userimg+"'> "+username)
+        $("#nav_top_UserID").html("<img style='height:1.75rem' src='"+userimg+"'> "+username)
+    })()
+</script>

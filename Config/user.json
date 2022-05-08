@@ -1,0 +1,7 @@
+{
+    "main":".\/Config\/User\/main.json",
+    "class":".\/Config\/User\/class.json",
+    "set":".\/Config\/User\/userset.json",
+    "notice":".\/Config\/User\/notice.json",
+    "chat":".\/Config\/User\/chat.json"
+}

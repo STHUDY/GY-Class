@@ -1,0 +1,14 @@
+.rotate-left{
+    transition-duration:1s;
+	transform:rotate(0deg)
+}
+.rotate-left:hover{
+    transform:rotate(360deg)
+}
+.rotate-right{
+    transition-duration:1.5s;
+	transform:rotate(0deg)
+}
+.rotate-right:hover{
+    transform:rotate(-360deg)
+}
