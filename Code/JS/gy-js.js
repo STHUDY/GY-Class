@@ -58,7 +58,7 @@ function get_user_info_axaj(id,value){
 			document.getElementById(id).innerHTML=xmlhttp.responseText;
 		}
 	}
-	xmlhttp.open("GET","./Code/PHP/gy-show-info.php?value="+value,true);
+	xmlhttp.open("GET","./Code/PHP/gy-show-info.php?value="+value,false);
 	xmlhttp.send();
 }
 function get_all_class_user(success,times){
