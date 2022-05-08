@@ -49,7 +49,7 @@ php版本:7.4
      
    如果不懂，请务更改 “script”
    
-   购买网站(需要自费购买)
+   购买API的网站(需要自费购买)
      
    https://api.sthudy.top
    
