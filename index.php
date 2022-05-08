@@ -35,7 +35,7 @@ if(isset($_COOKIE['UserID']) == true){
         <link href='./Code/CSS/gy-css-load.css' rel='stylesheet'>
         <link href='./Code/CSS/gy-css-run.css' rel='stylesheet'>
         <link rel="icon" href="./Info/IMG/ICO/Default.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="./Info/IMG/ICO/LZY.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./Info/IMG/ICO/Default.ico" type="image/x-icon">
         <script src='./Code/CSS/bootstrap5/js/bootstrap.min.js'></script>
         <script src='./Code/JS/gy-js.js'></script>
         <script src='./Code/JS/gy-cookie.js'></script>
