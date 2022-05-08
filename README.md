@@ -4,6 +4,7 @@
 php版本:7.4
 
 伪静态:true
+
 数据库:true
 
 使用方法:
@@ -44,3 +45,12 @@ php版本:7.4
      
    如果不懂，请务更改 “script”
    
+   第三步:输入伪静态
+   
+     location / { 
+        if (!-e $request_filename) {
+        	rewrite  ^(.*)$  /index.php/=/$1  last;
+        	break;
+        }
+     }
+
