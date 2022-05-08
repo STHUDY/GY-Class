@@ -1,9 +1,9 @@
 设置职位(班长，课代表，学生，管理员等)
     执行sql : 
         UPDATE `user` SET `power`='0' WHERE `userID`= "用户ID" 设置为学生(默认)
-        UPDATE `user` SET `power`='0' WHERE `userID`= "用户ID" 设置为课代表(手动)
-        UPDATE `user` SET `power`='0' WHERE `userID`= "用户ID" 设置为班长(手动)
-        UPDATE `user` SET `power`='0' WHERE `userID`= "用户ID" 设置为管理员(手动)
+        UPDATE `user` SET `power`='1' WHERE `userID`= "用户ID" 设置为课代表(手动)
+        UPDATE `user` SET `power`='2' WHERE `userID`= "用户ID" 设置为班长(手动)
+        UPDATE `user` SET `power`='3' WHERE `userID`= "用户ID" 设置为管理员(手动)
     只有班长能发公告(其实管理员也可以，要用特殊方法)
 
 
