@@ -33,7 +33,7 @@ php版本:7.4
         
         ALTER TABLE `user` ADD PRIMARY KEY (`listid`), ADD UNIQUE KEY `userID` (`userID`), ADD KEY `listid` (`listid`); COMMIT;
         
-   第二步:接入API
+   第二步:接入API(保证数据安全,提供验证码)
    
    打开./Apis/Default/api-use.json
      
