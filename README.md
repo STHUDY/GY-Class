@@ -15,8 +15,11 @@ php版本:7.4
   输入数据库信息
       
    数据库地址(host)
+   
    数据库地址(username)
+   
    数据库地址(password)
+   
    数据库地址(dbname)
         
   执行sql
@@ -34,7 +37,10 @@ php版本:7.4
    打开./Apis/Default/api-use.json
      
    输入API的用户信息
-     用户账号(userid-api)
-     用户身份识别码(id-api)
-     如果不懂，请务更改 “script”
+   
+   用户账号(userid-api)
+     
+   用户身份识别码(id-api)
+     
+   如果不懂，请务更改 “script”
    
