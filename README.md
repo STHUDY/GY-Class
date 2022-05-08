@@ -53,6 +53,14 @@ php版本:7.4
      
    https://api.sthudy.top
    
+   购买API 
+   
+   加密API中的 RAND加密接口
+   
+   验证码API中的 HCJS验证码接口
+   
+   都已做好适配
+   
    第三步:输入伪静态
    
      location / { 
