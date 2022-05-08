@@ -47,7 +47,7 @@ php版本:7.4
    
    购买网站(需要自费购买)
      
-     https://api.sthudy.top
+   https://api.sthudy.top
    
    第三步:输入伪静态
    
