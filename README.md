@@ -37,7 +37,9 @@ php版本:7.4
         
         ALTER TABLE `class` ADD UNIQUE KEY `code` (`code`);
         
-        ALTER TABLE `user` ADD PRIMARY KEY (`listid`), ADD UNIQUE KEY `userID` (`userID`), ADD KEY `listid` (`listid`); COMMIT;
+        ALTER TABLE `user` ADD PRIMARY KEY (`listid`), ADD UNIQUE KEY `userID` (`userID`), ADD KEY `listid` (`listid`); 
+        
+        COMMIT;
         
    第二步:接入API(保证数据安全,提供验证码)
    
