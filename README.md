@@ -31,6 +31,8 @@ php版本:7.4
         
   执行sql
   
+    需要修改$dbname => 数据库名（sql语句中）
+
         SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
         START TRANSACTION;
         SET time_zone = "+00:00";
