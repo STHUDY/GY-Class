@@ -31,14 +31,41 @@ php版本:7.4
         
   执行sql
   
-        CREATE TABLE `class` (`code` varchar(64) NOT NULL,`class` varchar(128) NOT NULL,`notice` text NOT NULL,`message` longtext NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+        START TRANSACTION;
+        SET time_zone = "+00:00";
         
-        CREATE TABLE `user` (`userID` varchar(32) NOT NULL,`password` text NOT NULL,`name` text NOT NULL,`set` text NOT NULL,`userset` text NOT NULL,`classcode` text NOT NULL,`info` text NOT NULL,`self` text NOT NULL,`listid` bigint(20) NOT NULL,`power` int(3) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        CREATE DATABASE IF NOT EXISTS `gyclass` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+        USE `gyclass`;
         
-        ALTER TABLE `class` ADD UNIQUE KEY `code` (`code`);
+        CREATE TABLE `class` (
+          `code` varchar(64) NOT NULL,
+          `class` varchar(128) NOT NULL,
+          `notice` text NOT NULL,
+          `message` longtext NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         
-        ALTER TABLE `user` ADD PRIMARY KEY (`listid`), ADD UNIQUE KEY `userID` (`userID`), ADD KEY `listid` (`listid`); 
+        CREATE TABLE `user` (
+          `userID` varchar(32) NOT NULL,
+          `password` text NOT NULL,
+          `name` text NOT NULL,
+          `set` text NOT NULL,
+          `userset` text NOT NULL,
+          `classcode` text NOT NULL,
+          `info` text NOT NULL,
+          `self` text NOT NULL,
+          `listid` bigint(20) NOT NULL,
+          `power` int(11) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         
+        
+        ALTER TABLE `class`
+          ADD UNIQUE KEY `code` (`code`);
+          
+        ALTER TABLE `user`
+          ADD PRIMARY KEY (`listid`),
+          ADD UNIQUE KEY `userID` (`userID`),
+          ADD KEY `listid` (`listid`);
         COMMIT;
         
    第二步:接入API(保证数据安全,提供验证码)
