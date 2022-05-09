@@ -35,8 +35,8 @@ php版本:7.4
         START TRANSACTION;
         SET time_zone = "+00:00";
         
-        CREATE DATABASE IF NOT EXISTS `gyclass` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-        USE `gyclass`;
+        CREATE DATABASE IF NOT EXISTS `$dbname` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+        USE `$dbname`;
         
         CREATE TABLE `class` (
           `code` varchar(64) NOT NULL,
