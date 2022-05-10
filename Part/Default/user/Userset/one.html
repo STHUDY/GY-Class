@@ -1,6 +1,7 @@
 <div class='text-center cover_full_cut_nav' style='margin-top:4.2rem'>
     <br>
     <div class='border border-5 rounded-3 bg-light border-light' style='display: inline-block;width:100%;max-width:600px;opacity:0.60'>
+        <h3 class='text-info' style="text-align:left;margin-left:5%">学生设置:</h3>
         <!--用户基础设置-->
         <div style="margin-top:10px">
             <h4 class="text-info" style="text-align:left;margin-left:10%"><span>名字：</span><span id='user_name'></span><span id='change_user_name'></span> <button id="change_user_name_button" onclick='Create_box("change_user_name","./Code/PHP/gy-con-change-name.php","user_name","user_name","change_user_name_button")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button></h4>
@@ -13,6 +14,7 @@
         </div>
         <!--用户基础设置-->
         <br>
+        <h3 class='text-info' style="text-align:left;margin-left:5%">联系方式设置:</h3>
         <!--个人信息设置-->
         <div>
             <h4 class='text-info' style="text-align:left;margin-left:10%"><span>QQ：</span><span id='show_qq'></span><span id='show_qq_change'></span>
@@ -24,12 +26,13 @@
             <h4 class='text-info' style="text-align:left;margin-left:10%"><span>电话：</span><span id='show_phone'></span><span id='show_phone_change'></span>
                 <button id="show_phone_change_buttom" onclick='Create_box("show_phone_change","./Code/PHP/gy-change-phone.php","Phone","show_phone","show_phone_change_buttom")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button>
             </h4>
-            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>联系邮箱：</span><span id='show_box'></span><span id='show_box_change'></span>
+            <h4 class='text-info' style="text-align:left;margin-left:10%"><span>邮箱：</span><span id='show_box'></span><span id='show_box_change'></span>
                 <button id="show_box_change_buttom" onclick='Create_box("show_box_change","./Code/PHP/gy-change-box.php","Box","show_box","show_box_change_buttom")' style='font-size:16px;background:none' class="rounded-circle border-0"><i class="bi bi-pencil"></i></button>
             </h4>
         </div>
         <!--个人信息设置-->
         <br>
+        <h3 class='text-info' style="text-align:left;margin-left:5%">其他设置:</h3>
         <!--个人描述-->
         <div>
             <h4 class='text-info' style="text-align:left;margin-left:10%">
@@ -41,6 +44,7 @@
         </div>
         <!--个人描述-->
         <br>
+        <h3 class='text-info' id='notice_class_first' style="text-align:left;margin-left:5%;display:none">班长设置:</h3>
         <!--班长权限-->
         <div id='notice' style="display:none">
             <h4 class='text-info' style="text-align:left;margin-left:10%">
@@ -52,6 +56,12 @@
         </div>
         <!--班长权限-->
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 <script>
     (function(){
@@ -76,6 +86,7 @@
             $("#class_power_user").html("课代表")
         }else if(Number(getCookie("UserPower")) == 2){
             document.getElementById('notice').style.display = "inline"
+            document.getElementById('notice_class_first').style.display = "block"
             get_class_notice("class_notice")
             $("#class_power_user").html("班长")
             var class_notice = document.getElementById('notice');
