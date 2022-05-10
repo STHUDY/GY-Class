@@ -29,6 +29,7 @@ if(isset($_COOKIE['UserID']) == true){
         <title>光忆同学录</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <link href='./Code/CSS/bootstrap5/icons/bootstrap-icons.css' rel='stylesheet'>
         <link href='./Code/CSS/bootstrap5/css/bootstrap.css' rel='stylesheet'>
         <link href='./Code/CSS/gy-css.css' rel='stylesheet'>
