@@ -65,7 +65,10 @@ chat_get_message_number('loaded',function(result){
 }
 self.setInterval(function(){
             chat_get_message_number("loading",function(results){
-                if(Number(results) > Number(getCookie("LoadMessage")) && Number(getCookie("LoadMessage")) != -1 && Number(results) != -1){
+                if(Number(results) > Number(getCookie("LoadMessage")) && Number(getCookie("LoadMessage")) != -1 && Number(results) != -1 || Number(results) == -2){
+                    if(Number(results) == -2){
+                        results = "0";
+                    }
                     setCookie('LoadMessage',String(Number(getCookie("LoadMessage"))+1),30)
                     chat_get_message(results,function(result){
                     load_massage(result)
