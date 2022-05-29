@@ -1,6 +1,6 @@
 <?php
 $sign_userid = $_POST['sign_userid'];
-$sign_userid = $_POST['sign_password'];
+$sign_userpassword = $_POST['sign_password'];
 $mysql = json_decode(file_get_contents("../../Config/mysql.json"),true);
 
 $con = mysqli_connect($mysql['host'],$mysql['username'],$mysql['password'],$mysql['dbname']);
@@ -15,7 +15,7 @@ if($row["userID"] != $sign_userid){
     echo'<script>window.alert("账号不存在")</script>';
     die();
 }
-if($row["password"] != md5($sign_userid)){
+if($row["password"] != md5($sign_userpassword)){
     echo'<script>window.alert("密码错误")</script>';
     die();
 }else{

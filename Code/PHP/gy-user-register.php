@@ -1,5 +1,5 @@
 <?php
-$reg_userid = $_POST['reg_password'];
+$reg_userid = $_POST['reg_userid'];
 $reg_password = $_POST['reg_password'];
 $mysql = json_decode(file_get_contents("../../Config/mysql.json"),true);
 

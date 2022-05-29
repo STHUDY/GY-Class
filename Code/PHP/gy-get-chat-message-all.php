@@ -17,6 +17,7 @@ $row = mysqli_fetch_array($sqls_get_message);
 $message = base64_decode($row['message']);
 if($message == ""){
     $data = "0";
+    $number = "0";
 }else{
     $data = json_decode($message,true);
     $number = strval(count($data));
@@ -27,6 +28,11 @@ if($type == 'loaded'){
 }else if($type == 'loading'){
     if($number != $_COOKIE['MessageI']){
         setcookie('MessageI',$number,time()+60*60*24*30);
+        if($number == 1){
+            setcookie('LoadMessage',"0",time()+60*60*24*30,'/');
+            echo "-2";
+            die();
+        }
         setcookie('LoadMessage',strval(count($data) - 2),time()+60*60*24*30,'/');
         echo strval(count($data) - 1);
     }else{
