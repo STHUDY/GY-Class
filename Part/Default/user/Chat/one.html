@@ -70,6 +70,7 @@ self.setInterval(function(){
                         results = "0";
                     }
                     setCookie('LoadMessage',String(Number(getCookie("LoadMessage"))+1),30)
+                    $("#send_text_box").val("")
                     chat_get_message(results,function(result){
                     load_massage(result)
                 },true)

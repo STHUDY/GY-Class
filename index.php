@@ -22,6 +22,7 @@ if(isset($_COOKIE['UserID']) == true){
     $load_need = json_decode(file_get_contents($load_config[$now_web]),true);
     require("./Code/PHP/gy-load-main.php");
 }
+$http_type = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ? 'https' : 'http';
 
 ?>
 <html>
@@ -29,14 +30,19 @@ if(isset($_COOKIE['UserID']) == true){
         <title>光忆同学录</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <link href='./Code/CSS/bootstrap5/icons/bootstrap-icons.css' rel='stylesheet'>
+        
+        <?php
+        if($http_type == 'https'){
+            echo '<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">';
+        }
+        ?>
         <link href='./Code/CSS/bootstrap5/css/bootstrap.css' rel='stylesheet'>
         <link href='./Code/CSS/gy-css.css' rel='stylesheet'>
         <link href='./Code/CSS/gy-css-load.css' rel='stylesheet'>
         <link href='./Code/CSS/gy-css-run.css' rel='stylesheet'>
-        <link rel="icon" href="./Info/IMG/ICO/Default.png" type="image/x-icon">
-        <link rel="shortcut icon" href="./Info/IMG/ICO/Default.png" type="image/x-icon">
+        <link rel="icon" href="./Info/IMG/ICO/LZY.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./Info/IMG/ICO/LZY.ico" type="image/x-icon">
         <script src='./Code/CSS/bootstrap5/js/bootstrap.min.js'></script>
         <script src='./Code/JS/gy-js.js'></script>
         <script src='./Code/JS/gy-cookie.js'></script>

@@ -23,7 +23,4 @@ if($load_need['notice'] == true){
 if($load_need['chat'] == true){
     $main = file_get_contents($load['chat']);
 }
-if($load_need['comment'] == true){
-    $main = file_get_contents($load['comment']);
-}
 ?>

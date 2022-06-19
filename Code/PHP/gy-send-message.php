@@ -1,5 +1,8 @@
 <?php
 $send_message = $_POST['send_message'];
+if(str_replace(" ","",$send_message) == ""){
+    die();
+}
 $mysql = json_decode(file_get_contents("../../Config/mysql.json"),true);
 $con = mysqli_connect($mysql['host'],$mysql['username'],$mysql['password'],$mysql['dbname']);
 if (mysqli_connect_errno()) {
