@@ -88,6 +88,13 @@ php版本:7.4
      
    https://api.sthudy.top
    
+   
+   这里提供一个账号和密码
+   
+       账号:pneumonoultramicroscopicsilicovo
+       密码:リュウグウノオトヒメノモトユイノキリハズシ
+   
+   
    购买API 
    
    加密API中的 RAND加密接口
